@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Het bepalen van de omtrek van een driehoek</title>
+
+  <script type="text/javascript">
+    
+
+
+function bereken() {
+		invoer1 = document.formulier.invoerveld1.value;
+		invoer2 = document.formulier.invoerveld2.value;
+		invoer3 = document.formulier.invoerveld3.value;
+
+		a2 = Math.pow(invoer1,2);
+		b2 = Math.pow(invoer2,2);
+		r = invoer3/180*Math.PI;
+		h = Math.cos(r);
+		c2 = a2 - (-1*b2) - (2*invoer1*invoer2*h);
+		c1 = Math.sqrt(c2);
+		ca = Math.round(c1*10);
+		c = ca/10;
+		o = invoer1 - (-1*invoer2) - (-1*c);
+		uitvoer1 = o;
+
+
+                document.getElementById('uitvoerveld1').innerHTML= 'De omtrek van deze driehoek is afgerond ' + uitvoer1 + ' centimeter.';
+		
+
+		}
+
+
+
+function opnieuw() {
+		document.formulier.invoerveld1.value = "";
+		document.formulier.invoerveld2.value = "";
+		document.formulier.invoerveld3.value = "";
+                document.getElementById('uitvoerveld1').innerHTML = ' ';
+                document.formulier.invoerveld1.focus();
+		}
+
+  </script>
+</head>
+
+<body>
+
+  <h3>
+    De omtrek van een driehoek als twee zijden met de ingesloten hoek zijn gegeven.
+  </h3>
+
+  Hieronder staan drie invoervelden, voer daar de gegevens van de driehoek in. 
+  Druk vervolgens op "Bereken" om de omtrek van de betreffende driehoek te laten bepalen.
+
+  <form name="formulier">
+	Vul de gegevens in in de daarvoor bestemde hokjes:
+	<br>
+	De lengte van zijde 1 in hele centimeters <input style="width: 30px;" type="text" name="invoerveld1">,  
+	<br>
+	De lengte van zijde 2 in hele centimeters <input style="width: 30px;" type="text" name="invoerveld2">,
+	<br>
+	De grootte van de ingesloten hoek in graden [0 - 180] <input style="width: 30px;" type="text" name="invoerveld3">.
+	<br>
+        <br>
+	<input class="knop" type="button" value="Bereken" onclick="bereken();">
+        <input class="knop" type="button" value="Nieuwe opgave" onclick="opnieuw();">
+  </form>
+	<br>
+        <br>
+
+  <div id="uitvoerveld1"> </div>
+  
+  <div id="uitvoerveld2"> </div>
+
+
+</body>
+
+</html>
+
+
+
+ 
